@@ -1,6 +1,9 @@
 import {useLoaderData, Link} from '@remix-run/react';
 import {json} from '@shopify/remix-oxygen';
 import {Pagination, getPaginationVariables, Image} from '@shopify/hydrogen';
+export const handle = {
+  breadcrumbType: () => "collections",
+};
 
 /**
  * @param {LoaderFunctionArgs}

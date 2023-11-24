@@ -7,13 +7,17 @@ import {
   Money,
 } from '@shopify/hydrogen';
 import {useVariantUrl} from '~/utils';
-
+export const handle = {
+  breadcrumbType: () => "collections",
+};
 /**
  * @type {MetaFunction<typeof loader>}
  */
 export const meta = ({data}) => {
   return [{title: `Hydrogen | ${data?.collection.title ?? ''} Collection`}];
 };
+
+
 
 /**
  * @param {LoaderFunctionArgs}
@@ -155,8 +159,7 @@ const PRODUCT_ITEM_FRAGMENT = `#graphql
 `;
 
 // NOTE: https://shopify.dev/docs/api/storefront/2022-04/objects/collection
-const COLLECTION_QUERY = `#graphql
-  ${PRODUCT_ITEM_FRAGMENT}
+const COLLECTION_QUERY = `#graphql ${PRODUCT_ITEM_FRAGMENT}
   query Collection(
     $handle: String!
     $country: CountryCode
